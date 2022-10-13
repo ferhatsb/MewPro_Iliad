@@ -171,8 +171,15 @@ void Iliad_Setting_Shutter() {
               break;
             case 1: // mount
               if (digitalRead(SECONDARY_RESET) == LOW) {
+                // unmount
                 pinMode(SECONDARY_RESET, INPUT_PULLUP);
+                delay(2000);
+                WRITE_CHAR("ZZ00030101\n");
               } else {
+                // mount
+                WRITE_CHAR('\n');   // this is required because the buffer is made empty
+                WRITE_CHAR('@');
+                delay(2000);
                 digitalWrite(SECONDARY_RESET, LOW);
                 pinMode(SECONDARY_RESET, OUTPUT);
               }

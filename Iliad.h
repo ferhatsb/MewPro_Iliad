@@ -9,7 +9,7 @@
 
 #include "MenuText.h"
 
-#define __VERSION_STRING__ "v1.3.9"
+#define __VERSION_STRING__ "v1.3.10"
 
 #ifdef USE_LCD
 #  include <LiquidCrystal.h>
@@ -123,4 +123,3 @@ boolean (*startup[])(void) = {
 #endif
   NULL
 };
-
